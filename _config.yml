@@ -22,11 +22,7 @@ toc:
   h_max:   3
 
 # customize the link favicon in header, will be {{site.baseurl}}/{{site.favicon_path}}
-<<<<<<< HEAD
 favicon_path:     /refs/heads/master/assets/gitbook/images/logo.ico
-=======
-favicon_path:     refs/heads/master/assets/gitbook/images/logo.png
->>>>>>> c57286e (更改图标路径)
 
 # markdown render engine.
 markdown:         kramdown
