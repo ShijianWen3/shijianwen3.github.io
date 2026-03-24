@@ -1,7 +1,7 @@
 ---
 title: About others
-author: Tao He
-date: 2022-02-04
+author: ShijianWen
+date: 2026-03-24
 category: Jekyll
 layout: post
 ---

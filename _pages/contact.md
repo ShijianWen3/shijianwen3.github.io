@@ -1,9 +1,11 @@
 ---
 title: Contact
-author: Tao He
-date: 2022-02-05
+author: ShijianWen
+date: 2026-03-24
 category: Jekyll
 layout: post
 ---
 
-This is an contact page.
+
+🤖通过Gmail联系我:wenshijian3@gmail.com
+✉️通过Outlook联系我:evan3.141@outlook.com
