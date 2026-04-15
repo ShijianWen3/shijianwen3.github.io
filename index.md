@@ -13,4 +13,8 @@
 
 - 📱[用于18届智能车龙芯组赛道的图像采集上位机](https://github.com/ShijianWen3/SCB)
 
+- 📈[LabMind-智能光谱数据分析与分类系统](https://github.com/ShijianWen3/LabMind)
+
+- 🧔[eigenface医学数据分析课程设计-基于PCA的人脸识别](https://github.com/ShijianWen3/eigenface)
+
 
