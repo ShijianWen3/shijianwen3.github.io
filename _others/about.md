@@ -6,4 +6,26 @@ category: Jekyll
 layout: post
 ---
 
-This is an about page for "others" in the collections.
+```
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+  A B O U T   O T H E R S
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+```
+
+```
+// system.info
+USER    : ShijianWen
+STATUS  : online
+MOOD    : ¯\_(ツ)_/¯
+COFFEE  : [████████░░] 80%
+SLEEP   : [████░░░░░░] 40%
+```
+
+```
+// skills.log
+Coding    [███████████░░░░] 73%
+Cooking   [████████░░░░░░░] 53%
+Sleeping  [████░░░░░░░░░░░] 27%
+Vibing    [███████████████] 99%
+$ _
+```

@@ -7,5 +7,8 @@ layout: post
 ---
 
 
-🤖通过Gmail联系我:wenshijian3@gmail.com
-✉️通过Outlook联系我:evan3.141@outlook.com
+🤖通过Gmail联系我
+[![Email](https://img.shields.io/badge/Email-wenshijian3%40gmail.com-blue?logo=gmail)](mailto:wenshijian3@gmail.com)
+
+✉️通过Outlook联系我
+[![Email](https://img.shields.io/badge/Email-example%40outlook.com-blue?logo=microsoftoutlook)](mailto:evan3.141@outlook.com)
