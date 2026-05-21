@@ -6,7 +6,7 @@
 ### 🚀使用的jekyll主题:
 [gitbook](https://sighingnow.github.io/jekyll-gitbook/)是一个简洁的, 专注于内容的jekyll主题, 组织形式更接近于文档而不是博客, 适合想要content-oriented的同学.
 
-### ✏️我的~~开发~~经历:
+### ✏️我的~~开发~~Vibe coding经历:
 - 💻[用于yolov8-HBB混沌球摆追踪的上位机](https://github.com/ShijianWen3/app_yolo_pyqt)
 
 - 🖥️[用于UWB超带宽室内定位的上位机](https://github.com/ShijianWen3/UWB-PyQt)
