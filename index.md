@@ -17,4 +17,9 @@
 
 - 🧔[eigenface医学数据分析课程设计-基于PCA的人脸识别](https://github.com/ShijianWen3/eigenface)
 
+- 🔢[使用ResNet对手写数字及字母识别](https://github.com/ShijianWen3/English-Handwritten-Characters-Classification)
+
+
+
+
 
