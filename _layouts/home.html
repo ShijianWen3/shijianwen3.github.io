@@ -17,26 +17,15 @@
 
             <div class="book-body">
                 <div class="book-header" role="navigation">
-                    <div class="geek-decorator">
-                        <span class="prompt">$</span> <span class="typing-text" data-text="init_system"></span>
-                    </div>
                     <!-- Title -->
                     <h1>
-                        <i class="fa fa-terminal"></i>
+                        <i class="fa fa-circle-o-notch fa-spin"></i>
                         {% if page.title %}
                             <a href="." >{{ page.title | escape }}</a>
                         {% else %}
                             <a href="." >{{ site.title | escape }}</a>
                         {% endif %}
                     </h1>
-                    <div class="ascii-divider">
-<pre>
-╔═══════════════════════════════════════════════════════════╗
-║  &gt;_ Welcome to my digital garden                     ║
-║  &gt;_ Type 'help' for available commands              ║
-╚═══════════════════════════════════════════════════════════╝
-</pre>
-                    </div>
                 </div>
 
                 <div class="body-inner">
