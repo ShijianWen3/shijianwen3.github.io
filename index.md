@@ -17,9 +17,11 @@ layout: home
  |_____/|_|\___| |_|    |_|
 ```
 
-> `>>> import sjbook`
-> `>>> sjbook.welcome()`
-> `'你好，欢迎你的到来！这里是我记录与学习的内容，想要给来时路留下的痕迹。'`
+<img src="{{site.baseurl}}/assets/me.png" alt="avatar" style="width: 120px; border-radius: 50%; border: 3px solid #50fa7b; box-shadow: 0 0 15px rgba(80, 250, 123, 0.3);"/>
+
+> `>>> profile.load()`
+
+本科就读于HFUT，喜欢折腾各种有趣的技术项目。热衷于用代码解决问题，从嵌入式到深度学习都有涉猎。相信"做中学"，每行代码都是成长的脚印。
 
 ---
 
