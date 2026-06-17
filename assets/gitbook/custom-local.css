@@ -19,9 +19,9 @@
 /* Geek style background */
 .body-inner {
     background-image:
-        linear-gradient(rgba(45, 140, 240, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(45, 140, 240, 0.03) 1px, transparent 1px);
-    background-size: 20px 20px;
+        linear-gradient(rgba(45, 140, 240, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(45, 140, 240, 0.08) 1px, transparent 1px);
+    background-size: 25px 25px;
 }
 
 /* Terminal style border for code blocks */
