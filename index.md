@@ -1,4 +1,8 @@
 ---
+title: Home
+author: ShijianWen
+date: 2025-07-22
+category: Jekyll
 layout: home
 ---
 
