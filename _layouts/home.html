@@ -4,6 +4,10 @@
 
         {%- include head.html -%}
 
+        <!-- rocket launch intro: once per session, skippable -->
+        <link rel="stylesheet" href="{{site.baseurl}}/assets/splash/rocket-splash.css">
+        <script src="{{site.baseurl}}/assets/splash/rocket-splash.js" defer></script>
+
         {% assign reversed_posts = site.posts | reverse %}
 
         {% if reversed_posts %}
