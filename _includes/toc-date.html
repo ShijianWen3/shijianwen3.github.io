@@ -115,8 +115,22 @@
                 {% endfor %}
             {% endif %}
         </ul>
-        <div class="visitor-map">
-            <a href="https://mapmyvisitors.com/web/1c5k9" title="Visit tracker"><img src="https://mapmyvisitors.com/map.png?d=qaAkq_IFVB51EGSkMQ5BS08ilokX7l7MSncaZA0QeKg&cl=ffffff" /></a>
+        <div class="visitor-globe" id="visitor-globe"
+             data-snapshot="{{ site.baseurl }}/assets/globe/visitors.json"
+             data-broker="wss://broker.emqx.io:8084/mqtt"
+             data-topic="sjbook/geo/v1/">
+            <div class="visitor-globe-head">
+                <span class="vg-title">VISITOR ORIGINS</span>
+                <span class="vg-status" data-status="sync"><i></i><em>SYNC</em></span>
+            </div>
+            <canvas role="img" aria-label="3D globe showing where visitors come from" title="匿名统计：仅记录约 1° 精度的位置，不保存 IP"></canvas>
+            <noscript><p class="vg-noscript">Enable JavaScript to render the visitor globe.</p></noscript>
+            <div class="visitor-globe-foot">
+                <span class="vg-stat"><b data-stat="visits">&mdash;</b><em>visits</em></span>
+                <span class="vg-stat"><b data-stat="regions">&mdash;</b><em>regions</em></span>
+            </div>
+            <div class="vg-you" data-you>YOU &middot; <span data-you-label></span></div>
         </div>
+        <script src="{{ site.baseurl }}/assets/globe/globe.js" defer></script>
     </nav>
 </div>

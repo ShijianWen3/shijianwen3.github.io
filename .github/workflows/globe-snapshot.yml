@@ -1,0 +1,42 @@
+name: Update visitor globe snapshot
+
+on:
+  schedule:
+    # daily, off the hour to avoid the busiest GitHub Actions slot
+    - cron: "23 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: visitor-globe-snapshot
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: python -m pip install --quiet paho-mqtt
+
+      - name: Pull retained visitor cells
+        run: python scripts/globe_snapshot.py
+
+      - name: Commit snapshot if it changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- assets/globe/visitors.json; then
+            echo "snapshot unchanged"
+            exit 0
+          fi
+          git add assets/globe/visitors.json
+          git commit -m "chore: update visitor globe snapshot"
+          git push

@@ -4,16 +4,125 @@
  *   these get simply added to the ones already active in the layout.
  */
 
-.book-summary .visitor-map {
-    padding: 15px;
-    text-align: center;
-    border-top: 1px solid #ddd;
-    margin-top: 20px;
+/* 3D visitor globe (self-hosted, no third-party map service) */
+.book-summary .visitor-globe {
+    margin: 22px 12px 14px;
+    padding: 10px 10px 8px;
+    border-radius: 10px;
+    background:
+        radial-gradient(120% 90% at 50% 28%, rgba(80, 250, 123, 0.10), transparent 62%),
+        linear-gradient(160deg, #0c1320 0%, #070a10 68%, #05070b 100%);
+    border: 1px solid rgba(80, 250, 123, 0.20);
+    box-shadow: 0 10px 26px rgba(7, 17, 27, 0.26), inset 0 0 26px rgba(80, 250, 123, 0.035);
+    text-align: left;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
-.book-summary .visitor-map img {
-    max-width: 100%;
+.book-summary .visitor-globe-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font: 600 8px/1 Consolas, Menlo, "Liberation Mono", monospace;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #71818f;
+}
+
+.book-summary .visitor-globe .vg-title {
+    color: #7f918f;
+}
+
+.book-summary .visitor-globe .vg-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    letter-spacing: 0.10em;
+    color: #5c6b78;
+}
+
+.book-summary .visitor-globe .vg-status i {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #5c6b78;
+}
+
+.book-summary .visitor-globe .vg-status em {
+    font-style: normal;
+}
+
+.book-summary .visitor-globe .vg-status[data-status="live"] { color: #50fa7b; }
+.book-summary .visitor-globe .vg-status[data-status="live"] i {
+    background: #50fa7b;
+    box-shadow: 0 0 6px #50fa7b;
+    animation: vg-pulse 1.6s ease-in-out infinite;
+}
+.book-summary .visitor-globe .vg-status[data-status="snapshot"] i { background: #3f8fbc; }
+.book-summary .visitor-globe .vg-status[data-status="offline"] i { background: #7a5a3a; }
+
+.book-summary .visitor-globe canvas {
+    display: block;
+    width: 100%;
     height: auto;
+    aspect-ratio: 1 / 1;
+    margin: 6px 0;
+    cursor: grab;
+    touch-action: none;
+}
+
+.book-summary .visitor-globe canvas:active { cursor: grabbing; }
+
+.book-summary .visitor-globe-foot {
+    display: flex;
+    justify-content: space-between;
+    font: 600 9px/1 Consolas, Menlo, "Liberation Mono", monospace;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #66757f;
+}
+
+.book-summary .visitor-globe .vg-stat em {
+    font-style: normal;
+    margin-left: 4px;
+    color: #4d5a64;
+}
+
+.book-summary .visitor-globe .vg-stat b {
+    font-weight: 700;
+    color: #50fa7b;
+}
+
+.book-summary .visitor-globe .vg-you {
+    margin-top: 6px;
+    font: 600 8px/1.2 Consolas, Menlo, "Liberation Mono", monospace;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: #c9a06a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    visibility: hidden;
+}
+
+.book-summary .visitor-globe .vg-you.is-visible { visibility: visible; }
+
+.book-summary .visitor-globe .vg-noscript {
+    margin: 0;
+    font: 600 9px/1.5 Consolas, Menlo, "Liberation Mono", monospace;
+    letter-spacing: 0.06em;
+    color: #7f908f;
+    text-align: center;
+}
+
+@keyframes vg-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .book-summary .visitor-globe .vg-status i { animation: none; }
 }
 
 /* Geek style background */
