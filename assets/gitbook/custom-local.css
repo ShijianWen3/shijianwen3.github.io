@@ -10,10 +10,10 @@
     padding: 10px 10px 8px;
     border-radius: 10px;
     background:
-        radial-gradient(120% 90% at 50% 28%, rgba(80, 250, 123, 0.10), transparent 62%),
-        linear-gradient(160deg, #0c1320 0%, #070a10 68%, #05070b 100%);
-    border: 1px solid rgba(80, 250, 123, 0.20);
-    box-shadow: 0 10px 26px rgba(7, 17, 27, 0.26), inset 0 0 26px rgba(80, 250, 123, 0.035);
+        radial-gradient(120% 90% at 50% 26%, rgba(46, 170, 128, 0.07), transparent 60%),
+        linear-gradient(165deg, #ffffff 0%, #fbfdfc 55%, #f5f9f7 100%);
+    border: 1px solid rgba(24, 62, 50, 0.12);
+    box-shadow: 0 8px 20px rgba(24, 62, 50, 0.07), 0 1px 2px rgba(24, 62, 50, 0.04);
     text-align: left;
     user-select: none;
     -webkit-user-select: none;
@@ -26,11 +26,11 @@
     font: 600 8px/1 Consolas, Menlo, "Liberation Mono", monospace;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #71818f;
+    color: #6b7d78;
 }
 
 .book-summary .visitor-globe .vg-title {
-    color: #7f918f;
+    color: #5b706b;
 }
 
 .book-summary .visitor-globe .vg-status {
@@ -38,7 +38,7 @@
     align-items: center;
     gap: 4px;
     letter-spacing: 0.10em;
-    color: #5c6b78;
+    color: #7c8c87;
 }
 
 .book-summary .visitor-globe .vg-status i {
@@ -46,21 +46,21 @@
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    background: #5c6b78;
+    background: #9aa8a3;
 }
 
 .book-summary .visitor-globe .vg-status em {
     font-style: normal;
 }
 
-.book-summary .visitor-globe .vg-status[data-status="live"] { color: #50fa7b; }
+.book-summary .visitor-globe .vg-status[data-status="live"] { color: #0b8f5a; }
 .book-summary .visitor-globe .vg-status[data-status="live"] i {
-    background: #50fa7b;
-    box-shadow: 0 0 6px #50fa7b;
+    background: #0b8f5a;
+    box-shadow: 0 0 5px rgba(11, 143, 90, 0.45);
     animation: vg-pulse 1.6s ease-in-out infinite;
 }
-.book-summary .visitor-globe .vg-status[data-status="snapshot"] i { background: #3f8fbc; }
-.book-summary .visitor-globe .vg-status[data-status="offline"] i { background: #7a5a3a; }
+.book-summary .visitor-globe .vg-status[data-status="snapshot"] i { background: #3d80a6; }
+.book-summary .visitor-globe .vg-status[data-status="offline"] i { background: #a06a38; }
 
 .book-summary .visitor-globe canvas {
     display: block;
@@ -80,18 +80,18 @@
     font: 600 9px/1 Consolas, Menlo, "Liberation Mono", monospace;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #66757f;
+    color: #6b7d78;
 }
 
 .book-summary .visitor-globe .vg-stat em {
     font-style: normal;
     margin-left: 4px;
-    color: #4d5a64;
+    color: #93a19d;
 }
 
 .book-summary .visitor-globe .vg-stat b {
     font-weight: 700;
-    color: #50fa7b;
+    color: #0b7a52;
 }
 
 .book-summary .visitor-globe .vg-you {
@@ -99,7 +99,7 @@
     font: 600 8px/1.2 Consolas, Menlo, "Liberation Mono", monospace;
     letter-spacing: 0.10em;
     text-transform: uppercase;
-    color: #c9a06a;
+    color: #b25f11;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -112,7 +112,7 @@
     margin: 0;
     font: 600 9px/1.5 Consolas, Menlo, "Liberation Mono", monospace;
     letter-spacing: 0.06em;
-    color: #7f908f;
+    color: #7c8c87;
     text-align: center;
 }
 

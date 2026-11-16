@@ -123,16 +123,16 @@
             centerX - radius * 0.32, centerY - radius * 0.38, radius * 0.05,
             centerX, centerY, radius * 1.02
         );
-        g.addColorStop(0, 'rgba(96, 214, 168, 0.13)');
-        g.addColorStop(0.45, 'rgba(28, 62, 72, 0.05)');
-        g.addColorStop(0.85, 'rgba(4, 8, 12, 0.30)');
-        g.addColorStop(1, 'rgba(2, 4, 7, 0.55)');
+        g.addColorStop(0, 'rgba(255, 255, 255, 1)');
+        g.addColorStop(0.55, 'rgba(249, 253, 252, 1)');
+        g.addColorStop(0.88, 'rgba(235, 245, 241, 1)');
+        g.addColorStop(1, 'rgba(220, 235, 230, 1)');
         shadeGradient = g;
 
         var h = ctx.createRadialGradient(centerX, centerY, radius * 0.9, centerX, centerY, radius * 1.32);
-        h.addColorStop(0, 'rgba(80, 250, 123, 0.14)');
-        h.addColorStop(0.35, 'rgba(80, 250, 123, 0.05)');
-        h.addColorStop(1, 'rgba(80, 250, 123, 0)');
+        h.addColorStop(0, 'rgba(46, 170, 128, 0.12)');
+        h.addColorStop(0.35, 'rgba(46, 170, 128, 0.04)');
+        h.addColorStop(1, 'rgba(46, 170, 128, 0)');
         haloGradient = h;
     }
 
@@ -151,23 +151,23 @@
     /* ------------------------------------------------------------------ *
      * Glow sprites
      * ------------------------------------------------------------------ */
-    function makeGlow(r, g, b) {
+    function makeGlow(r, g, b, peak) {
         var size = 64;
         var c = document.createElement('canvas');
         c.width = c.height = size;
         var g2 = c.getContext('2d');
         var grad = g2.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
-        grad.addColorStop(0, 'rgba(228, 250, 255, 0.88)');
-        grad.addColorStop(0.14, 'rgba(' + r + ',' + g + ',' + b + ',0.78)');
-        grad.addColorStop(0.38, 'rgba(' + r + ',' + g + ',' + b + ',0.24)');
+        grad.addColorStop(0, 'rgba(' + r + ',' + g + ',' + b + ',' + peak + ')');
+        grad.addColorStop(0.24, 'rgba(' + r + ',' + g + ',' + b + ',' + (peak * 0.58).toFixed(3) + ')');
+        grad.addColorStop(0.55, 'rgba(' + r + ',' + g + ',' + b + ',' + (peak * 0.16).toFixed(3) + ')');
         grad.addColorStop(1, 'rgba(' + r + ',' + g + ',' + b + ',0)');
         g2.fillStyle = grad;
         g2.fillRect(0, 0, size, size);
         return c;
     }
 
-    var visitorGlow = makeGlow(86, 216, 255);
-    var youGlow = makeGlow(255, 168, 74);
+    var visitorGlow = makeGlow(28, 110, 220, 0.34);
+    var youGlow = makeGlow(224, 104, 18, 0.30);
 
     /* ------------------------------------------------------------------ *
      * Data
@@ -614,11 +614,16 @@
         ctx.fillStyle = haloGradient;
         ctx.fill();
 
-        // sphere body
+        // sphere body with a soft drop shadow on the light panel
+        ctx.save();
         ctx.beginPath();
         ctx.arc(centerX, centerY, radius, 0, TAU);
+        ctx.shadowColor = 'rgba(20, 60, 48, 0.18)';
+        ctx.shadowBlur = Math.max(10, radius * 0.16);
+        ctx.shadowOffsetY = Math.max(3, radius * 0.05);
         ctx.fillStyle = shadeGradient;
         ctx.fill();
+        ctx.restore();
 
         var sinTilt = Math.sin(tilt);
         var cosTilt = Math.cos(tilt);
@@ -647,7 +652,7 @@
 
         // back hemisphere: a whisper of volume
         if (backDots) {
-            ctx.fillStyle = 'rgba(80, 250, 123, 0.032)';
+            ctx.fillStyle = 'rgba(20, 105, 82, 0.05)';
             for (i = 0; i < count; i++) {
                 var by = land[i * 3];
                 var br = land[i * 3 + 1];
@@ -665,9 +670,9 @@
         for (var level = 0; level < buckets.length; level++) {
             var pts = buckets[level];
             if (!pts.length) continue;
-            var alpha = 0.055 + (level / 6) * 0.42;
-            var size = 0.75 + (level / 6) * 0.65;
-            ctx.fillStyle = 'rgba(80, 250, 123, ' + alpha.toFixed(3) + ')';
+            var alpha = 0.12 + (level / 6) * 0.50;
+            var size = 0.8 + (level / 6) * 0.7;
+            ctx.fillStyle = 'rgba(20, 105, 82, ' + alpha.toFixed(3) + ')';
             for (i = 0; i < pts.length; i += 2) {
                 ctx.fillRect(pts[i] - size / 2, pts[i + 1] - size / 2, size, size);
             }
@@ -676,14 +681,12 @@
         // rim
         ctx.beginPath();
         ctx.arc(centerX, centerY, radius, 0, TAU);
-        ctx.strokeStyle = 'rgba(126, 255, 184, 0.20)';
+        ctx.strokeStyle = 'rgba(18, 96, 76, 0.22)';
         ctx.lineWidth = 1;
         ctx.stroke();
 
         // visitor cells
-        ctx.globalCompositeOperation = 'lighter';
         drawVisitorCells(t);
-        ctx.globalCompositeOperation = 'source-over';
     }
 
     function drawVisitorCells(t) {
@@ -700,7 +703,7 @@
             var depth = Math.min(1, p[2] * 1.4);
             var n = cells[key];
             var size = Math.min(28, 8 + Math.log(n + 1) / Math.LN2 * 3.0);
-            var alpha = (0.26 + 0.50 * depth) * (0.80 + Math.min(0.20, n / 60));
+            var alpha = (0.30 + 0.40 * depth) * (0.85 + Math.min(0.15, n / 60));
 
             // pulse for the busier cells
             if (n >= 3 && !reduceMotion) {
@@ -708,7 +711,7 @@
                 var ringR = size * 0.28 + phase * size * 0.55;
                 ctx.beginPath();
                 ctx.arc(sx, sy, ringR, 0, TAU);
-                ctx.strokeStyle = 'rgba(120, 226, 255, ' + ((1 - phase) * 0.34 * depth).toFixed(3) + ')';
+                ctx.strokeStyle = 'rgba(20, 104, 200, ' + ((1 - phase) * 0.28 * depth).toFixed(3) + ')';
                 ctx.lineWidth = 1;
                 ctx.stroke();
             }
@@ -717,9 +720,15 @@
             ctx.drawImage(visitorGlow, sx - size / 2, sy - size / 2, size, size);
             ctx.globalAlpha = 1;
 
-            ctx.fillStyle = 'rgba(224, 250, 255, ' + (0.55 + 0.4 * depth).toFixed(3) + ')';
-            var core = 1 + depth * 0.9;
-            ctx.fillRect(sx - core / 2, sy - core / 2, core, core);
+            // white halo + solid blue core reads well on the light globe
+            ctx.beginPath();
+            ctx.arc(sx, sy, 2.6 + depth * 1.0, 0, TAU);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.90)';
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(sx, sy, 1.4 + depth * 0.9, 0, TAU);
+            ctx.fillStyle = 'rgba(11, 99, 197, ' + (0.72 + 0.26 * depth).toFixed(3) + ')';
+            ctx.fill();
         }
 
         // the current visitor
@@ -731,16 +740,30 @@
                 var gy = centerY - gp[1] * radius;
                 var pulse = reduceMotion ? 0.5 : (Math.sin(t * 2.4) + 1) / 2;
                 var gsize = 16 + pulse * 6;
-                ctx.globalAlpha = 0.42 + 0.20 * gp[2];
+                ctx.globalAlpha = 0.48 + 0.18 * gp[2];
                 ctx.drawImage(youGlow, gx - gsize / 2, gy - gsize / 2, gsize, gsize);
                 ctx.globalAlpha = 1;
+
+                // pulsing target ring
                 ctx.beginPath();
-                ctx.arc(gx, gy, 3.2, 0, TAU);
-                ctx.strokeStyle = 'rgba(255, 186, 104, ' + (0.55 + 0.35 * pulse).toFixed(3) + ')';
-                ctx.lineWidth = 1.2;
+                ctx.arc(gx, gy, 6 + pulse * 4.5, 0, TAU);
+                ctx.strokeStyle = 'rgba(217, 96, 10, ' + ((1 - pulse) * 0.30).toFixed(3) + ')';
+                ctx.lineWidth = 1;
                 ctx.stroke();
-                ctx.fillStyle = 'rgba(255, 236, 210, 0.95)';
-                ctx.fillRect(gx - 1, gy - 1, 2, 2);
+
+                ctx.beginPath();
+                ctx.arc(gx, gy, 4.4, 0, TAU);
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+                ctx.fill();
+                ctx.beginPath();
+                ctx.arc(gx, gy, 4.0, 0, TAU);
+                ctx.strokeStyle = 'rgba(217, 96, 10, 0.90)';
+                ctx.lineWidth = 1.4;
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.arc(gx, gy, 1.7, 0, TAU);
+                ctx.fillStyle = '#e0660d';
+                ctx.fill();
             }
         }
     }
