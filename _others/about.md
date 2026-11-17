@@ -12,7 +12,6 @@ layout: post
 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 ```
 
-> `> others.load()` —— 这里存放关于我的"其他"：边角料档案、技能值和一些奇怪但真实的统计。数据仅供参考，最终解释权归本人所有。
 
 <style>
 @keyframes cursor-blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
@@ -30,7 +29,7 @@ layout: post
 <pre style="margin: 0; border: none; background: transparent; color: #f8f8f2; font-family: Consolas, 'Courier New', monospace; font-size: 0.95em; line-height: 1.7;">
 <span style="color: #50fa7b;">ShijianWen@Sjbook</span>:<span style="color: #8be9fd;">~</span>$ cat system.info
 USER    : ShijianWen
-ROLE    : 嵌入式 × 深度学习 缝合怪
+ROLE    : NPC
 CAMPUS  : 合肥工业大学(本科) → 上海交通大学(硕士)
 STATUS  : online
 MOOD    : ¯\_(ツ)_/¯
@@ -51,38 +50,14 @@ Vibing    [███████████████] 99%
 $ _
 ```
 
-## 🧭 人生航线
-
-- 🏫 本科：合肥工业大学
-- 🚀 硕士：上海交通大学
-- 🛠️ 路线：嵌入式 → 深度学习，两头折腾
-
-## 🧰 工具箱
-
-| 领域 | 关键词 |
-|:--|:--|
-| 视觉 | YOLO · ResNet · PCA |
-| 定位 | UWB 超宽带室内定位 |
-| 上位机 | PyQt |
-| 竞赛 | 智能车（龙芯组） |
-| 光谱 | LabMind |
-
-## 📡 奇怪但真实的统计
-
-- 🐛 写过的 bug：数不清，但都修好了（大概）
-- 🧬 人生进度：Loading…（缓慢但稳定）
-- ☕ 咖啡因依赖：80%，且持续上升
-- 💤 睡眠质量：40%，周末充值
-- 🎓 保研咨询：欢迎合工大学弟学妹随时来问
 
 ## 📜 life.log
 
-```
-* feat: 合肥工业大学本科毕业
-* feat: 上海交通大学硕士在读
-* fix: 无数个深夜的 bug
-* chore: 持续 vibe coding 中
-```
+- 🐛 写过的 bug：数不清，但都修好了（大概）
+- 🧬 人生进度：Loading…（缓慢但稳定）
+- 🤖 AI依赖：80%，且持续上升
+- 💤 睡眠质量：40%，周末充值
+
 
 ## 🚀 快速通道
 
