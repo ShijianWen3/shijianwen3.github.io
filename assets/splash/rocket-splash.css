@@ -5,6 +5,12 @@
     z-index: 99990;
     background: #f8fafc;
     transition: opacity 0.5s ease;
+    overscroll-behavior: none;
+}
+
+html.sj-splash-active,
+body.sj-splash-active {
+    overflow: hidden !important;
 }
 
 .sj-splash-canvas {
@@ -38,9 +44,18 @@
     color: #8a98a3;
 }
 
+.sj-splash-skip {
+    margin-left: auto;
+    font: 500 10px/1 Consolas, Menlo, monospace;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #5b6b78;
+    opacity: 0.72;
+}
+
 .sj-splash-bottom {
     position: absolute;
-    bottom: 22px;
+    bottom: max(22px, env(safe-area-inset-bottom));
     left: 24px;
     right: 24px;
     display: flex;
@@ -79,6 +94,6 @@
 
 @media (max-width: 640px) {
     .sj-splash-top { top: 16px; left: 16px; right: 16px; }
-    .sj-splash-bottom { bottom: 16px; left: 16px; right: 16px; }
+    .sj-splash-bottom { bottom: max(16px, env(safe-area-inset-bottom)); left: 16px; right: 16px; }
     .sj-splash-phase { min-width: 84px; }
 }

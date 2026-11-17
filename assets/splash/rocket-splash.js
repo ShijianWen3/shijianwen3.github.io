@@ -1,9 +1,8 @@
 /*!
  * rocket-splash.js — minimal line-art rocket launch intro for the home page.
  *
- * Builds its own overlay, plays once per browser session, and never blocks
- * the page: it skips itself on click, Esc, or when the user prefers reduced
- * motion. No external dependencies.
+ * Builds its own overlay, plays once per browser session, and stays skippable
+ * by click or Esc. It also respects the user's reduced-motion preference.
  */
 (function () {
     'use strict';
@@ -29,13 +28,18 @@
     overlay.innerHTML =
         '<canvas class="sj-splash-canvas"></canvas>' +
         '<div class="sj-splash-hud">' +
-        '  <div class="sj-splash-top"><span class="sj-splash-tag">LAUNCH SEQUENCE</span></div>' +
+        '  <div class="sj-splash-top">' +
+        '    <span class="sj-splash-tag">LAUNCH SEQUENCE</span>' +
+        '    <span class="sj-splash-skip">CLICK / ESC TO SKIP</span>' +
+        '  </div>' +
         '  <div class="sj-splash-bottom">' +
         '    <div class="sj-splash-progress"><i></i></div>' +
         '    <span class="sj-splash-phase">STANDBY</span>' +
         '  </div>' +
         '</div>';
     document.body.appendChild(overlay);
+    document.documentElement.classList.add('sj-splash-active');
+    document.body.classList.add('sj-splash-active');
 
     var canvas = overlay.querySelector('canvas');
     var ctx = canvas.getContext('2d');
@@ -43,11 +47,11 @@
     var phaseEl = overlay.querySelector('.sj-splash-phase');
 
     var TAU = Math.PI * 2;
-    var DURATION = 4.7;
-    var IGNITION = 0.3;
-    var LIFTOFF = 0.5;
-    var FLIGHT_END = 3.3;
-    var FADE_START = 4.15;
+    var DURATION = 3.2;
+    var IGNITION = 0.18;
+    var LIFTOFF = 0.34;
+    var FLIGHT_END = 2.25;
+    var FADE_START = 2.72;
 
     // palette: ink lines, one green accent, faint blue grid
     var INK = '31, 45, 61';
@@ -88,7 +92,8 @@
     function rocketState(t) {
         var p = clamp((t - LIFTOFF) / (FLIGHT_END - LIFTOFF), 0, 1);
         var e = Math.pow(p, 1.6);
-        var x0 = W * 0.5, y0 = H - 56;
+        // Keep the enlarged ignition frame clear of the viewport edge.
+        var x0 = W * 0.5, y0 = H - 112;
         var x1 = W * 0.55, y1 = H * 0.12;
         var x = x0 + (x1 - x0) * e + Math.sin(e * Math.PI) * 12;
         var y = y0 + (y1 - y0) * e;
@@ -103,7 +108,7 @@
         return {
             x: x,
             y: y,
-            scale: 2.7 * (1 - 0.88 * e),
+            scale: 3.2 * (1 - 0.82 * e),
             angle: angle,
             alpha: 1 - smoothstep(0.86, 1, p),
             p: p
@@ -375,7 +380,7 @@
         if (t < IGNITION) return 'STANDBY';
         if (t < LIFTOFF) return 'IGNITION';
         if (t < FLIGHT_END) return 'ASCENT';
-        if (t < FADE_START) return 'SIGNAL LOST';
+        if (t < FADE_START) return 'OPENING SITE';
         if (t < DURATION) return 'ENTERING SITE';
         return 'REPLAY';
     }
@@ -406,6 +411,8 @@
         overlay.classList.add('sj-splash-done');
         setTimeout(function () {
             if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+            document.documentElement.classList.remove('sj-splash-active');
+            document.body.classList.remove('sj-splash-active');
         }, 650);
     }
 
