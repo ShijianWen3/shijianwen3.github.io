@@ -33,17 +33,19 @@ __          _______      _
 [gitbook](https://sighingnow.github.io/jekyll-gitbook/)是一个简洁的, 专注于内容的jekyll主题, 组织形式更接近于文档而不是博客, 适合想要content-oriented的同学.
 
 ### ✏️我的~~开发~~Vibe coding经历:
+- 🧱[使用Cloudfare-worker/page服务进行中转代理,谨慎使用!!!](https://github.com/ShijianWen3/edgetunnel)
+
 - 💻[用于yolov8-HBB混沌球摆追踪的上位机](https://github.com/ShijianWen3/app_yolo_pyqt)
 
-- 🖥️[用于UWB超带宽室内定位的上位机](https://github.com/ShijianWen3/UWB-PyQt)
+- 👨‍🏫[用于一键评价及联系导师的web端插件](https://github.com/ShijianWen3/mail2professor)
 
-- 📱[用于18届智能车龙芯组赛道的图像采集上位机](https://github.com/ShijianWen3/SCB)
+- 🖐️[5路柔性传感器手套手势数据采集及识别,以及机械手控制](https://github.com/ShijianWen3/intelligent-gesture-recognition)
 
 - 📈[LabMind-智能光谱数据分析与分类系统](https://github.com/ShijianWen3/LabMind)
 
-- 🧔[eigenface医学数据分析课程设计-基于PCA的人脸识别](https://github.com/ShijianWen3/eigenface)
+- 🔢[使用ResNet18对手写数字及字母识别](https://github.com/ShijianWen3/English-Handwritten-Characters-Classification)
 
-- 🔢[使用ResNet对手写数字及字母识别](https://github.com/ShijianWen3/English-Handwritten-Characters-Classification)
+
 
 
 
