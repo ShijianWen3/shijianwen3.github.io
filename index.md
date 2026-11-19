@@ -18,7 +18,7 @@ __          _______      _
 ```
 
 <div style="display: flex; align-items: center; gap: 18px;">
-  <img src="{{site.baseurl}}/assets/me.png" alt="avatar" style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid #50fa7b; box-shadow: 0 0 15px rgba(80, 250, 123, 0.3);"/>
+  <img src="{{site.baseurl}}/assets/myself.jpg" alt="avatar" style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid #50fa7b; box-shadow: 0 0 15px rgba(80, 250, 123, 0.3);"/>
   <img src="{{site.baseurl}}/assets/hfutlogo.png" alt="合肥工业大学校徽" title="合肥工业大学" style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover;"/>
   <img src="{{site.baseurl}}/assets/sjtulogo.png" alt="上海交通大学校徽" title="上海交通大学" style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover;"/>
 </div>
